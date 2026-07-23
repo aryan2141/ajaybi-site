@@ -14,11 +14,19 @@
 </head>
 
 <body>
+    <div id="loader" class="loader-wrapper">
+        <img src="./assets/img/logo.png" alt="" width="150">
+
+        <svg class="loader-circle" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#fdde09" stroke-width="2" />
+        </svg>
+    </div>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="./assets/img/logo.png" alt="" width="80" data-aos="zoom-in">
+                    <img src="./assets/img/logo.png" alt="" width="80" data-aos="zoom-in" data-aos-delay="2600">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -26,20 +34,25 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item" data-aos="fade-up" data-aos-delay="100">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="100"
+                            data-delay-desktop="2600">
                             <a class="nav-link" aria-current="page" href="#home">Home</a>
                         </li>
-                        <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
+                        <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="200"
+                            data-delay-desktop="2700">
                             <a class="nav-link" href="#about-us">About Us</a>
                         </li>
-                        <li class="nav-item" data-aos="fade-up" data-aos-delay="500">
+                        <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="300"
+                            data-delay-desktop="2800">
                             <a class="nav-link" href="#product">Product</a>
                         </li>
-                        <li class="nav-item" data-aos="fade-up" data-aos-delay="700">
+                        <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="400"
+                            data-delay-desktop="2900">
                             <a class="nav-link" href="#why-choose-section">Our Strengths</a>
                         </li>
-                        <li class="nav-item" data-aos="fade-up" data-aos-delay="900">
+                        <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="500"
+                            data-delay-desktop="3000">
                             <a class="nav-link" href="#contact-us">Contact Us</a>
                         </li>
                     </ul>
@@ -56,21 +69,36 @@
                     <div class="swiper-slide">
                         <div class="row align-items-center flex-wrap-reverse">
                             <div class="col-md-6">
-                                <h5 class="banner-title-sm" data-aos="fade-up" data-aos-delay="100">Premium Jaggery Chai Franchise</h5>
-                                <h1 class="banner-title mb-0" data-aos="fade-up" data-aos-delay="300"><span>Chai</span> Nahi,
-                                    <span>Ajaybi</span> hai</h1>
-                                <h1 class="banner-title" data-aos="fade-up" data-aos-delay="300"><span>Dil</span> Chahe, <span>Ajaybi</span>
-                                    Chai</h1>
-                                <p class="banner-desc" data-aos="fade-up" data-aos-delay="500">Welcome to “AJAYBI CHAI STATION”, where every cup tells a
+                                <h5 class="aos-item banner-title-sm" data-aos="fade-up" data-delay-mobile="100"
+                                    data-delay-desktop="2600">Premium Jaggery
+                                    Chai
+                                    Franchise</h5>
+                                <h1 class="aos-item banner-title mb-0" data-aos="fade-up" data-delay-mobile="200"
+                                    data-delay-desktop="2700"><span>Chai</span>
+                                    Nahi,
+                                    <span>Ajaybi</span> hai
+                                </h1>
+                                <h1 class="aos-item banner-title" data-aos="fade-up" data-delay-mobile="300"
+                                    data-delay-desktop="2800"><span>Dil</span>
+                                    Chahe,
+                                    <span>Ajaybi</span>
+                                    Chai
+                                </h1>
+                                <p class="aos-item banner-desc" data-aos="fade-up" data-delay-mobile="400"
+                                    data-delay-desktop="2900">Welcome to “AJAYBI CHAI
+                                    STATION”, where every cup tells a
                                     story: we blend traditional
                                     chai craftsmanship with modern hospitality, offering franchise partners proven
                                     systems, premium blends, and support to build thriving community tea destinations.
                                 </p>
 
-                                <a href="#" class="btn default-btn" data-aos="fade-up" data-aos-delay="700">Contact Us</a>
+                                <a href="#" class="aos-item btn default-btn" data-aos="fade-up" data-delay-mobile="500"
+                                    data-delay-desktop="3000">Contact
+                                    Us</a>
                             </div>
                             <div class="col-md-6 mb-5 mb-md-0">
-                                <img class="img-fluid banner-thumb" src="./assets/img/banner.png" alt="Banner" data-aos="zoom-in-down" data-aos-delay="100">
+                                <img class="img-fluid banner-thumb" src="./assets/img/banner.png" alt="Banner"
+                                    data-aos="zoom-in-down" data-aos-delay="2500">
                             </div>
                         </div>
                     </div>
@@ -118,7 +146,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <img class="img-fluid" src="./assets/img/about-thumb.png" alt=""
-                        style="max-height: 600px;object-fit: cover;object-position: top;border-radius: 12px;" data-aos="fade-right">
+                        style="max-height: 600px;object-fit: cover;object-position: top;border-radius: 12px;"
+                        data-aos="fade-right">
                 </div>
                 <div class="col-lg-6">
                     <h5 class="section-title-sm" data-aos="fade-up" data-aos-delay="100">About Us</h5>
@@ -130,7 +159,8 @@
                         rituals, and the warmth of community in every authentic cup of masala or cutting
                         chai.
                     </p>
-                    <p class="section-desc mb-4" data-aos="fade-up" data-aos-delay="700">Unlike generic chains, our innovative "Your Chai Station" concept
+                    <p class="section-desc mb-4" data-aos="fade-up" data-aos-delay="700">Unlike generic chains, our
+                        innovative "Your Chai Station" concept
                         empowers
                         franchise owners with a chef-less model for maximum profits in the segment. We
                         deliver streamlined operations, premium ingredients, consistent recipes, spotless
@@ -283,7 +313,8 @@
                         India's vibrant chai culture through authentic, heartfelt experiences.
                     </p>
 
-                    <img src="./assets/img/product/ajaybi-special-tea.png" alt="Chai Franchise" class="why-image" data-aos="fade-up" data-aos-delay="300">
+                    <img src="./assets/img/product/ajaybi-special-tea.png" alt="Chai Franchise" class="why-image"
+                        data-aos="fade-up" data-aos-delay="300">
                 </div>
 
                 <!-- RIGHT SIDE -->
@@ -518,7 +549,7 @@
             disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
             startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
             initClassName: 'aos-init', // class applied after initialization
-            animatedClassName: 'aos-animate', // class applied on animation
+            animatedClassName: 'aos-animate ', // class applied on animation
             useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
             disableMutationObserver: false, // disables automatic mutations' detections (advanced)
             debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
@@ -526,7 +557,7 @@
 
 
             // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-            offset: 120, // offset (in px) from the original trigger point
+            offset: 50, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
             duration: 900, // values from 0 to 3000, with step 50ms
             easing: 'ease', // default easing for AOS animations
@@ -535,6 +566,34 @@
             anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
         });
+    </script>
+
+    <script>
+        var loader = document.getElementById("loader");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                loader.classList.add("d-none");
+            }, 2500);
+        });
+
+        window.addEventListener("resize", () => {
+            location.reload();
+        });
+
+
+
+        document.querySelectorAll(".aos-item").forEach(item => {
+
+            if (window.innerWidth < 768) {
+                item.dataset.aosDelay = item.dataset.delayMobile;
+            } else {
+                item.dataset.aosDelay = item.dataset.delayDesktop;
+            }
+
+        });
+
+        AOS.refresh();
     </script>
 </body>
 
