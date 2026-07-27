@@ -37,23 +37,23 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="100"
                             data-delay-desktop="2600">
-                            <a class="nav-link" aria-current="page" href="#home">Home</a>
+                            <a class="nav-link" aria-current="page" href="#home" data-target="home">Home</a>
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="200"
                             data-delay-desktop="2700">
-                            <a class="nav-link" href="#about-us">About Us</a>
+                            <a class="nav-link" href="#about-us" data-target="about-us">About Us</a>
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="300"
                             data-delay-desktop="2800">
-                            <a class="nav-link" href="#product">Product</a>
+                            <a class="nav-link" href="#product" data-target="product">Product</a>
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="400"
                             data-delay-desktop="2900">
-                            <a class="nav-link" href="#why-choose-section">Our Strengths</a>
+                            <a class="nav-link" href="#why-choose-section" data-target="why-choose-section">Our Strengths</a>
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="500"
                             data-delay-desktop="3000">
-                            <a class="nav-link" href="#contact-us">Contact Us</a>
+                            <a class="nav-link" href="#contact-us" data-target="contact-us">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -425,7 +425,8 @@
                                 <textarea class="form-control" placeholder="Type Your Message..."></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn default-btn" value="Send Message">
+                                <p id="form-msg" class="form-msg text-danger d-none">The contact form is temporarily unavailable. Please contact us via phone or email.</p>
+                                <input id="form-submit-btn" type="submit" class="btn default-btn" value="Send Message">
                             </div>
                         </form>
                     </div>
@@ -609,6 +610,23 @@
         });
 
         AOS.refresh();
+
+        document.querySelectorAll("[data-target]").forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const target = document.getElementById(link.dataset.target);
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        document.getElementById("form-submit-btn").addEventListener("click", function(e){
+            e.preventDefault();
+            document.getElementById("form-msg").classList.remove("d-none");
+        })
     </script>
 </body>
 
