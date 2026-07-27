@@ -49,7 +49,8 @@
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="400"
                             data-delay-desktop="2900">
-                            <a class="nav-link" href="#why-choose-section" data-target="why-choose-section">Our Strengths</a>
+                            <a class="nav-link" href="#why-choose-section" data-target="why-choose-section">Our
+                                Strengths</a>
                         </li>
                         <li class="nav-item aos-item" data-aos="fade-up" data-delay-mobile="500"
                             data-delay-desktop="3000">
@@ -425,7 +426,8 @@
                                 <textarea class="form-control" placeholder="Type Your Message..."></textarea>
                             </div>
                             <div class="form-group">
-                                <p id="form-msg" class="form-msg text-danger d-none">The contact form is temporarily unavailable. Please contact us via phone or email.</p>
+                                <p id="form-msg" class="form-msg text-danger d-none">The contact form is temporarily
+                                    unavailable. Please contact us via phone or email.</p>
                                 <input id="form-submit-btn" type="submit" class="btn default-btn" value="Send Message">
                             </div>
                         </form>
@@ -516,38 +518,10 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/swiper@12.0.3/swiper-bundle.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12.0.3/swiper-bundle.min.js "></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
-
-    <script>
-        const lenis = new Lenis({
-            duration: 1.2,
-            smoothWheel: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-    </script>
-
-    <script>
-        let index = 0;
-        const slides = document.getElementById('slides');
-        const dots = document.querySelectorAll('.dot');
-
-        function showSlide(i) {
-            index = i;
-            slides.style.transform = `translateX(-${i * 100}%)`;
-            dots.forEach(d => d.classList.remove('active'));
-            dots[i].classList.add('active');
-        }
-        dots.forEach((d, i) => d.onclick = () => showSlide(i));
-        setInterval(() => showSlide((index + 1) % 3), 5000);
-    </script>
+    <script src="./assets/js/index.js"></script>
 
     <script>
         var swiper = new Swiper(".banner-swiper", {
@@ -558,8 +532,7 @@
                 dynamicBullets: true,
             },
         });
-    </script>
-    <script>
+
         AOS.init({
             // Global settings:
             disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -580,53 +553,7 @@
             once: false, // whether animation should happen only once - while scrolling down
             mirror: false, // whether elements should animate out while scrolling past them
             anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
         });
-    </script>
-
-    <script>
-        var loader = document.getElementById("loader");
-
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                loader.classList.add("d-none");
-            }, 2500);
-        });
-
-        // window.addEventListener("resize", () => {
-        //     location.reload();
-        // });
-
-
-
-        document.querySelectorAll(".aos-item").forEach(item => {
-
-            if (window.innerWidth < 768) {
-                item.dataset.aosDelay = item.dataset.delayMobile;
-            } else {
-                item.dataset.aosDelay = item.dataset.delayDesktop;
-            }
-
-        });
-
-        AOS.refresh();
-
-        document.querySelectorAll("[data-target]").forEach(link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                const target = document.getElementById(link.dataset.target);
-
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-            });
-        });
-
-        document.getElementById("form-submit-btn").addEventListener("click", function(e){
-            e.preventDefault();
-            document.getElementById("form-msg").classList.remove("d-none");
-        })
     </script>
 </body>
 
