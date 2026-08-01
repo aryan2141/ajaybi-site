@@ -224,7 +224,7 @@ header .navbar {
     box-shadow: 0 0 6px -2px #000;
 }
 
-.key-point .key-point-block:hover .key-point-icon{
+.key-point .key-point-block:hover .key-point-icon {
     scale: 1.15;
 }
 
@@ -492,6 +492,13 @@ header .navbar {
 
 .contact-form-wrapper .default-btn:hover {
     background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+.contact-form-wrapper .default-btn:disabled {
+    opacity: 0.5;
+    background-color: var(--dark);
+    color: #FFF;
     border-color: var(--dark);
 }
 

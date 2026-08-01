@@ -592,13 +592,8 @@
         const submitBtn = form.querySelector('input[type="submit"]');
 
         form.addEventListener("submit", function (e) {
-
             e.preventDefault();
-
-            // Disable Button
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Sending...`;
-
+            
             emailjs.sendForm(
                 "service_zpzml7g",
                 "template_4hsmg3n",
@@ -606,41 +601,30 @@
             )
 
                 .then(() => {
-
                     form.reset();
-
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = "Send Message";
-
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Sending...`;
                     const successToast = new bootstrap.Toast(
                         document.getElementById("successToast"),
                         {
                             delay: 3000
                         }
                     );
-
                     successToast.show();
-
                 })
 
                 .catch((error) => {
-
                     console.error(error);
-
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = "Send Message";
-
                     const errorToast = new bootstrap.Toast(
                         document.getElementById("errorToast"),
                         {
                             delay: 3000
                         }
                     );
-
                     errorToast.show();
-
                 });
-
         });
     </script>
 </body>
