@@ -146,6 +146,7 @@ header .navbar {
 /* Banner */
 .banner {
     background-image: url('../img/banner-bg.webp');
+    background-attachment: fixed;
     background-size: contain;
 }
 
@@ -239,6 +240,7 @@ header .navbar {
 /* product */
 .product {
     background: #8b2e1c0d url("https://www.transparenttextures.com/patterns/food.png");
+    background-attachment: fixed;
 }
 
 .product .product-item {
@@ -414,7 +416,7 @@ header .navbar {
 
 /* ================= contact us ================= */
 .contact-us {
-    background-image: url('./assets/img/contact-bg.png');
+    background-image: url('../img/contact-bg.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -462,9 +464,15 @@ header .navbar {
 }
 
 .contact-desc {
+    display: block;
+    text-decoration: none;
     font-size: 16px;
     margin-bottom: 0;
     color: #e1e1e1;
+}
+
+a.contact-desc:hover {
+    color: var(--yellow);
 }
 
 .contact-form-wrapper {
