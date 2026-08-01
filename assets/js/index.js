@@ -9,46 +9,62 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-
-
-let index = 0;
-const slides = document.getElementById('slides');
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(i) {
-    index = i;
-    slides.style.transform = `translateX(-${i * 100}%)`;
-    dots.forEach(d => d.classList.remove('active'));
-    dots[i].classList.add('active');
-}
-dots.forEach((d, i) => d.onclick = () => showSlide(i));
-setInterval(() => showSlide((index + 1) % 3), 5000);
-
-
-
 var loader = document.getElementById("loader");
+const aosItems = document.querySelectorAll(".aos-item");
+const formSubmitButton = document.getElementById("form-submit-btn");
+const formMessage = document.getElementById("form-msg");
+const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const navbarCollapse = document.querySelector(".navbar-collapse");
+const mobileAosBreakpoint = 768;
+const desktopNavBreakpoint = 992;
+const reloadWidthThreshold = 80;
+let lastViewportWidth = window.innerWidth;
+
+function syncAosDelays() {
+    aosItems.forEach((item) => {
+        const nextDelay = window.innerWidth < mobileAosBreakpoint
+            ? item.dataset.delayMobile
+            : item.dataset.delayDesktop;
+
+        if (nextDelay) {
+            item.dataset.aosDelay = nextDelay;
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         loader.classList.add("d-none");
     }, 2500);
-});
 
-// window.addEventListener("resize", () => {
-//     location.reload();
-// });
+    syncAosDelays();
 
-document.querySelectorAll(".aos-item").forEach(item => {
-
-    if (window.innerWidth < 768) {
-        item.dataset.aosDelay = item.dataset.delayMobile;
-    } else {
-        item.dataset.aosDelay = item.dataset.delayDesktop;
+    if (window.AOS) {
+        AOS.refresh();
     }
-
 });
 
-AOS.refresh();
+let resizeTimeout;
+window.addEventListener("resize", () => {
+    window.clearTimeout(resizeTimeout);
+    resizeTimeout = window.setTimeout(() => {
+        const currentViewportWidth = window.innerWidth;
+        const crossedDesktopBreakpoint = (
+            lastViewportWidth < desktopNavBreakpoint && currentViewportWidth >= desktopNavBreakpoint
+        ) || (
+            lastViewportWidth >= desktopNavBreakpoint && currentViewportWidth < desktopNavBreakpoint
+        );
+        const widthChangedEnough = Math.abs(currentViewportWidth - lastViewportWidth) >= reloadWidthThreshold;
+
+        if (crossedDesktopBreakpoint || widthChangedEnough) {
+            lastViewportWidth = currentViewportWidth;
+            window.location.reload();
+            return;
+        }
+
+        lastViewportWidth = currentViewportWidth;
+    }, 200);
+});
 
 document.querySelectorAll("[data-target]").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -62,18 +78,17 @@ document.querySelectorAll("[data-target]").forEach(link => {
     });
 });
 
-document.getElementById("form-submit-btn").addEventListener("click", function (e) {
-    e.preventDefault();
-    document.getElementById("form-msg").classList.remove("d-none");
-})
-
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-const navbarCollapse = document.querySelector('.navbar-collapse');
+if (formSubmitButton && formMessage) {
+    formSubmitButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        formMessage.classList.remove("d-none");
+    });
+}
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
 
-        if (window.innerWidth < 992) {
+        if (window.innerWidth < desktopNavBreakpoint && navbarCollapse) {
             bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
         }
 
